@@ -1,0 +1,143 @@
+.amber {
+  background-color: #f59e0b;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue {
+  background-color: #0b69ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orange {
+  background-color: #f97316;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emerald {
+  background-color: #10b981;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teal {
+  background-color: #14b8a6;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  background-color: #b91c1c;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-blue {
+  background-color: #0ea5e9;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-item-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 600px;
+  min-height: 100px;
+
+  font-family: 'roboto';
+  margin-left: 80px;
+}
+.name-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.name {
+  color: #1e293b;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-top: 0px;
+}
+.time {
+  font-size: 10px;
+  color: #475569;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+.comment-container {
+  color: #475569;
+  margin-left: 40px;
+}
+.comment-text {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.like-delete-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
+  width: 580px;
+}
+.like-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+}
+.like-text {
+  margin-left: 5px;
+}
+.delete-button {
+  background-color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+.delete-icon {
+  width: 20px;
+  height: 20px;
+}
+.line {
+  width: 400px;
+  color: #64748b;
+}
