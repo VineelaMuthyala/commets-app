@@ -78,12 +78,17 @@
 .comment-item-container {
   display: flex;
   flex-direction: column;
-
+  flex-wrap: wrap;
   width: 600px;
   min-height: 100px;
-
   font-family: 'roboto';
   margin-left: 80px;
+}
+.list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
 }
 .name-container {
   display: flex;
@@ -106,6 +111,8 @@
 .comment-container {
   color: #475569;
   margin-left: 40px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .comment-text {
   font-size: 12px;
@@ -126,6 +133,10 @@
 }
 .like-text {
   margin-left: 5px;
+}
+.like-text {
+  margin-left: 5px;
+  color: #0ea5e9;
 }
 .delete-button {
   background-color: white;
