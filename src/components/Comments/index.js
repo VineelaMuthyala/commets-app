@@ -15,23 +15,22 @@ const initialContainerBackgroundClassNames = [
 ]
 
 class Comments extends Component {
-  state = {commentsList: [], comment: '', name: '', colourId: 0}
+  state = {commentsList: [], comment: '', name: ''}
 
   addComment = event => {
     event.preventDefault()
-    const {comment, name, colourId} = this.state
+    const {comment, name, commentsList} = this.state
     const newContact = {
       id: uuidv4(),
       name,
       comment,
       isLiked: false,
-      colour: initialContainerBackgroundClassNames[colourId],
+      colour: initialContainerBackgroundClassNames[commentsList.length],
     }
     this.setState(prevstate => ({
       commentsList: [...prevstate.commentsList, newContact],
       name: ' ',
       comment: ' ',
-      colourId: prevstate.colourId + 1,
     }))
   }
 
@@ -41,6 +40,25 @@ class Comments extends Component {
 
   commentText = event => {
     this.setState({comment: event.target.value})
+  }
+
+  deleteTheComment = id => {
+    const {commentsList} = this.state
+    console.log(id)
+    console.log(commentsList)
+    const filteredList = commentsList.filter(eachItem => eachItem.id !== id)
+    this.setState({commentsList: [...filteredList]})
+  }
+
+  toggleSwitch = id => {
+    this.setState(prevState => ({
+      commentsList: prevState.commentsList.map(eachItem => {
+        if (id === eachItem.id) {
+          return {...eachItem, isLiked: !eachItem.isLiked}
+        }
+        return eachItem
+      }),
+    }))
   }
 
   render() {
@@ -53,16 +71,16 @@ class Comments extends Component {
             <p className="para">Say something about 4.0 Technologies</p>
             <input
               className="name-input"
+              value={name}
               type="text"
               placeholder="Your Name"
               onChange={this.personsName}
-              value={name}
             />
             <textarea
               className="text-area"
               value={comment}
               rows="6"
-              cols="50"
+              cols="100"
               placeholder="Your Comment"
               onChange={this.commentText}
             />
@@ -78,13 +96,18 @@ class Comments extends Component {
         </div>
         <hr className="line" />
         <div className="comments-count-container">
-          <div className="comments-count">2</div>
+          <div className="comments-count">{commentsList.length}</div>
           <p className="comments-text">Comments</p>
         </div>
         <div>
           <ul className="unordered-list">
             {commentsList.map(eachItem => (
-              <CommentItem key={eachItem.id} commentDetails={eachItem} />
+              <CommentItem
+                key={eachItem.id}
+                commentDetails={eachItem}
+                deleteTheComment={this.deleteTheComment}
+                toggleSwitch={this.toggleSwitch}
+              />
             ))}
           </ul>
         </div>
