@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
+
 import CommentItem from '../CommentItem'
 
 import './index.css'
@@ -19,13 +20,20 @@ class Comments extends Component {
 
   addComment = event => {
     event.preventDefault()
-    const {comment, name, commentsList} = this.state
+    const {comment, name} = this.state
+    const initialContainerBackgroundColor = `initial-container ${
+      initialContainerBackgroundClassNames[
+        Math.ceil(
+          Math.random() * initialContainerBackgroundClassNames.length - 1,
+        )
+      ]
+    }`
     const newContact = {
       id: uuidv4(),
       name,
       comment,
-      isLiked: false,
-      colour: initialContainerBackgroundClassNames[commentsList.length],
+      isLiked: true,
+      colour: initialContainerBackgroundColor,
     }
     this.setState(prevstate => ({
       commentsList: [...prevstate.commentsList, newContact],
@@ -66,34 +74,41 @@ class Comments extends Component {
     return (
       <div className="bg-container">
         <h1 className="heading">Comments</h1>
-        <div className="comments-container">
-          <div className="add-comments-container">
-            <p className="para">Say something about 4.0 Technologies</p>
-            <input
-              className="name-input"
-              value={name}
-              type="text"
-              placeholder="Your Name"
-              onChange={this.personsName}
+        <form>
+          <div className="comments-container">
+            <div className="add-comments-container">
+              <p className="para">Say something about 4.0 Technologies</p>
+              <input
+                className="name-input"
+                type="text"
+                placeholder="Your Name"
+                onChange={this.personsName}
+                value={name}
+              />
+              <textarea
+                className="text-area"
+                rows="6"
+                cols="100"
+                placeholder="Your Comment"
+                onChange={this.commentText}
+                value={comment}
+              />
+              <button
+                className="button"
+                type="submit"
+                onClick={this.addComment}
+              >
+                Add Comment
+              </button>
+            </div>
+
+            <img
+              className="image"
+              alt="comments"
+              src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
             />
-            <textarea
-              className="text-area"
-              value={comment}
-              rows="6"
-              cols="100"
-              placeholder="Your Comment"
-              onChange={this.commentText}
-            />
-            <button className="button" type="submit" onClick={this.addComment}>
-              Add Comment
-            </button>
           </div>
-          <img
-            className="image"
-            alt="comments"
-            src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
-          />
-        </div>
+        </form>
         <hr className="line" />
         <div className="comments-count-container">
           <div className="comments-count">{commentsList.length}</div>
