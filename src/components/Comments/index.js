@@ -28,6 +28,7 @@ class Comments extends Component {
         )
       ]
     }`
+
     const newContact = {
       id: uuidv4(),
       name,
@@ -35,11 +36,11 @@ class Comments extends Component {
       isLiked: true,
       colour: initialContainerBackgroundColor,
     }
+
     this.setState(prevstate => ({
       commentsList: [...prevstate.commentsList, newContact],
-      name: ' ',
-      comment: ' ',
     }))
+    this.setState({name: '', comment: ''})
   }
 
   personsName = event => {
