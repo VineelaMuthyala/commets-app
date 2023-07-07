@@ -4,13 +4,11 @@ import './index.css'
 const date = new Date()
 console.log(date)
 
-const time = formatDistanceToNow(new Date(date))
-
 const CommentItem = props => {
   const {commentDetails, deleteTheComment, toggleSwitch} = props
   const {name, comment, colour, id, isLiked} = commentDetails
-  const initialLetter = name[0]
-  console.log(name)
+
+  const time = formatDistanceToNow(new Date(date))
 
   const deleteComment = () => {
     deleteTheComment(id)
@@ -29,7 +27,7 @@ const CommentItem = props => {
     <div className="comment-item-container">
       <li className="list-container">
         <div className="name-container">
-          <div className={colour}>{initialLetter}</div>
+          <div className={colour}>{name[0]}</div>
           <h1 className="name">{name}</h1>
           <p className="time">{time}</p>
         </div>
